@@ -10,7 +10,7 @@
 <br>
 
 - AlgoritmosGeneticos: Contém experimentos de Algoritmos Genéticos e seus códigos comentados, além de arquivos de funções, constantes e anotações; <br>
-- RedesNeurais: Contém experimentos de RedesNeurais e seus códigos comentados, além de arquivos de funções, constantes e anotações; <br>
+- RedesNeurais: Contém experimentos de RedesNeurais e seus códigos comentados, além de arquivos de funções, classes, constantes e anotações; <br>
 - .gitignore: É um recurso do GitHub com alguns arquivos especificados que serão ignorados para não atrapalhar o repositório; <br>
 - LICENSE: A licença do repositório - <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License v3.0</a> - é uma licença de software livre que estabelece as regras para o uso, modificação e distribuição de software sob seus termos; <br>
 - READM.md: É o arquivo que você está lendo agora.<br>
