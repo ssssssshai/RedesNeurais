@@ -15,3 +15,7 @@ Podemos separar os termos para facilitar o entendimento: <br>
 
 Logo, se juntarmos **Algoritmo + Genética** teremos os **Algoritmos Genéticos**! Uma sequência de instruções que levará um conjunto de "indivíduos", através de uma seleção, para uma espécie de "evolução" onde os mais aptos sobrevivem. Tal qual a realidade, esses algoritmos se baseiam em três pontos principais: seleção, cruzamento e mutação. Por uma sequência de eventos, a melhor genética vencerá.</blockquote>
 
+A editar:
+
+⌛ - Ainda está sendo estudado.
+✔️ - Foi estudado e está disponível atualizado neste repositório.
