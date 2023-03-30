@@ -42,7 +42,7 @@ def gene_letra(letras):
       Retorna uma letra dentro das possíveis de serem sorteadas.
     """
     letra = random.choice(letras)
-    return 
+    return letra
 
 
 
@@ -177,7 +177,7 @@ def selecao_torneio_min(populacao, fitness, tamanho_torneio=3):
     minimização.
     Args:
       populacao: população do problema
-      fun_objetivo: função objetivo
+      fitness: lista com os valores de fitness dos indivíduos da população
       tamanho_torneio: quantidade de invidiuos que batalham entre si
     Returns:
       Individuos selecionados. Lista com os individuos selecionados com mesmo
@@ -327,6 +327,7 @@ def funcao_objetivo_senha(individuo, senha_verdadeira):
 
 
 
+
 #Funções relacionadas ao objetivo da população:
 
 
@@ -375,3 +376,5 @@ def funcao_objetivo_pop_senha(populacao, senha_verdadeira):
         resultado.append(funcao_objetivo_senha(individuo, senha_verdadeira))
 
     return resultado
+
+
