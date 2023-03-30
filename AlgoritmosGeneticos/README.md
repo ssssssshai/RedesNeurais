@@ -54,6 +54,7 @@ Você pode notar que as coisas seguem uma lógica, muito parecida com a natureza
 - experimento A.01 - busca aleatoria.ipynb: Experimento sobre Busca Aleatória ✔️;
 - experimento A.02 - busca em grade.ipynb: Experimento sobre Busca em Grade ✔️;
 - experimento A.03 - algoritmo genetico.ipynb: Primeiro modelo básico de um Algoritmo Genético ✔️;
+- experimento A.04 - algoritmo genetico.ipynb: Segundo modelo básico de um Algoritmo Genético com uma variedade maior de valores que os genes podem assumir ✔️;
 - funcoes.py - Funções utilizadas nos experimentos ⌛.
 
 Legenda: <br>
