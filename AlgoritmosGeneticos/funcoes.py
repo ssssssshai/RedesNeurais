@@ -98,6 +98,20 @@ def individuo_senha(tamanho_senha, letras):
     return candidato
 
 
+def individuo_cv(cidades):
+    """Sorteia um caminho possível no problema do caixeiro viajante
+    Args:
+      cidades:
+        Dicionário onde as chaves são os nomes das cidades e os valores são as
+        coordenadas das cidades.
+    Return:
+      Retorna uma lista de nomes de cidades formando um caminho onde visitamos
+      cada cidade apenas uma vez.
+    """
+    nomes = list(cidades.keys())
+    random.shuffle(nomes)
+    return nomes
+
 
 
 #Funções relacionadas a população:
@@ -149,6 +163,22 @@ def populacao_inicial_senha(tamanho, tamanho_senha, letras):
     return populacao
 
 
+def populacao_inicial_cv(tamanho, cidades):
+    """Cria população inicial no problema do caixeiro viajante.
+    Args
+      tamanho:
+        Tamanho da população.
+      cidades:
+        Dicionário onde as chaves são os nomes das cidades e os valores são as
+        coordenadas das cidades.
+    Returns:
+      Lista com todos os indivíduos da população no problema do caixeiro
+      viajante.
+    """
+    populacao = []
+    for _ in range(tamanho):
+        populacao.append(individuo_cv(cidades))
+    return populacao
 
 
 #Funções relacionadas a seleção:
@@ -233,7 +263,35 @@ def cruzamento_simples(pai, mae):
     return filho1, filho2
 
 
-
+def cruzamento_ordenado(pai, mae):
+    """Operador de cruzamento ordenado.
+    Neste cruzamento, os filhos mantém os mesmos genes que seus pais tinham,
+    porém em uma outra ordem. Trata-se de um tipo de cruzamento útil para
+    problemas onde a ordem dos genes é importante e não podemos alterar os genes
+    em si. É um cruzamento que pode ser usado no problema do caixeiro viajante.
+    Ver pág. 37 do livro do Wirsansky.
+    Args:
+      pai: uma lista representando um individuo
+      mae : uma lista representando um individuo
+    Returns:
+      Duas listas, sendo que cada uma representa um filho dos pais que foram os
+      argumentos. Estas listas mantém os genes originais dos pais, porém altera
+      a ordem deles
+    """
+    corte1 = random.randint(0, len(pai) - 2)
+    corte2 = random.randint(corte1 + 1, len(pai) - 1)
+    
+    filho1 = pai[corte1:corte2]
+    for gene in mae:
+        if gene not in filho1:
+            filho1.append(gene)
+            
+    filho2 = mae[corte1:corte2]
+    for gene in pai:
+        if gene not in filho2:
+            filho2.append(gene)
+            
+    return filho1, filho2
 
 #Funções relacionadas a mutação:
 
@@ -280,7 +338,26 @@ def mutacao_senha(individuo, letras):
     return individuo
 
 
+def mutacao_de_troca(individuo):
+    """Troca o valor de dois genes.
+    Args:
+      individuo: uma lista representado um individuo.
+    Return:
+      O indivíduo recebido como argumento, porém com dois dos seus genes
+      trocados de posição.
+    """
+    indices = list(range(len(individuo)))
+    lista_sorteada = random.sample(indices, k=2) #k=2 é a quantidade de itens a serem sorteados.
+    indice1 = lista_sorteada[0]
+    indice2= lista_sorteada[1]
 
+    gene1 = individuo[indice1]
+    gene2 = individuo[indice2]
+
+    individuo[indice1] = gene2
+    individuo[indice2] = gene1
+
+    return individuo
 
 #Funções relacionadas a objetivos dos indivíduos:
 
@@ -324,6 +401,39 @@ def funcao_objetivo_senha(individuo, senha_verdadeira):
 
     return diferenca
 
+
+def funcao_objetivo_cv(individuo, cidades):
+    """Computa a funcao objetivo de um individuo no problema do caixeiro viajante.
+    Args:
+      individiuo:
+        Lista contendo a ordem das cidades que serão visitadas
+      cidades:
+        Dicionário onde as chaves são os nomes das cidades e os valores são as
+        coordenadas das cidades.
+    Returns:
+      A distância percorrida pelo caixeiro seguindo o caminho contido no
+      `individuo`. Lembrando que após percorrer todas as cidades em ordem, o
+      caixeiro retorna para a cidade original de onde começou sua viagem.
+    """
+
+    distancia = 0
+
+    for posicao in range(len(individuo) - 1):
+        
+        partida = cidades[individuo[posicao]]
+        chegada = cidades[individuo[posicao + 1]]
+        
+        percurso = distancia_entre_dois_pontos(partida, chegada)
+        distancia = distancia + percurso        
+               
+    # Calculando o caminho de volta para a cidade inicial
+    partida = cidades[individuo[-1]]
+    chegada = cidades[individuo[0]]
+
+    percurso = distancia_entre_dois_pontos(partida, chegada)
+    distancia = distancia + percurso
+    
+    return distancia
 
 
 
@@ -376,5 +486,221 @@ def funcao_objetivo_pop_senha(populacao, senha_verdadeira):
         resultado.append(funcao_objetivo_senha(individuo, senha_verdadeira))
 
     return resultado
+
+def funcao_objetivo_pop_cv(populacao, cidades):
+    """Computa a funcao objetivo de uma população no problema do caixeiro viajante.
+    Args:
+      populacao:
+        Lista com todos os inviduos da população
+      cidades:
+        Dicionário onde as chaves são os nomes das cidades e os valores são as
+        coordenadas das cidades.
+    Returns:
+      Lista contendo a distância percorrida pelo caixeiro para todos os
+      indivíduos da população.
+    """
+
+    resultado = []
+    for individuo in populacao:
+        resultado.append(funcao_objetivo_cv(individuo, cidades))
+
+    return resultado
+
+
+
+#SUPORTE
+
+def distancia_entre_dois_pontos(a, b):
+    """Computa a distância Euclidiana entre dois pontos em R^2
+    Args:
+      a: lista contendo as coordenadas x e y de um ponto.
+      b: lista contendo as coordenadas x e y de um ponto.
+    Returns:
+      Distância entre as coordenadas dos pontos `a` e `b`.
+    """
+
+    x1 = a[0]
+    x2 = b[0]
+    y1 = a[1]
+    y2 = b[1]
+
+    dist = ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** (1 / 2)
+
+    return dist
+
+
+def cria_cidades(n):
+    """Cria um dicionário aleatório de cidades com suas posições (x,y).
+    Args:
+      n: inteiro positivo
+        Número de cidades que serão visitadas pelo caixeiro.
+    Returns:
+      Dicionário contendo o nome das cidades como chaves e a coordenada no plano
+      cartesiano das cidades como valores.
+    """
+
+    cidades = {}
+
+    for i in range(n):
+        cidades[f"Cidade {i}"] = (random.random(), random.random())
+
+    return cidades
+
+
+
+
+#FUNÇÕES DEDICADAS AOS EXERCÍCIOS
+
+#SENHA DE TAMANHO VARIÁVEL
+
+def gene_senhavariavel(letras):
+    '''Sorteia uma letra para o problema da senha de tamanho variável.
+    Args:
+        letras: possíveis letras a serem sorteadas.
+    Return:
+        Uma letra dentro das possíveis a serem sorteadas.
+    '''
+    return random.choice(letras)
+
+
+
+def individuo_senhavariavel(tamanho_max, letras):
+    '''Cria um individuo para o problema da senha variável.
+    Args:
+        tamanho_max: tamanho máximo que a senha pode assumir;
+        letras: possíveis letras a serem sorteadas.
+    Return:
+        Uma lista que representa o individuo.
+    '''
+    tamanho_individuo = random.randint(3,tamanho_max)
+    individuo = []
+    for _ in range(tamanho_individuo):
+        individuo.append(gene_senhavariavel(letras))
+    return individuo
+
+def populacao_inical_senhavariavel(individuo, tamanho_max, letras):
+    '''Cria uma população para o problema da senha variável.
+    Args:
+        individuo: número de individuos da população.
+        tamanho_max: tamanho máximo que a senha pode assumir.
+        letras possíveis de serem sorteadas.
+    Return:
+        Uma lista que contem todos os individuos.
+    '''
+    populacao = []
+    for _ in range(individuo):
+        populacao.append(individuo_senhavariavel(tamanho_max, letras))
+    return populacao
+
+
+def objetivo_senhavariavel(individuo, senha_verdadeira, peso_da_penalidade):
+    '''Computa a funcao objetivo de um individuo no problema da senha.
+    Args:
+        individiuo: lista contendo as letras da senha;
+        senha_verdadeira: a senha que você está tentando descobrir;
+        peso_da_penalidade: peso para a diferenca de tamanho entre o individuo e a senha real.
+    Returns:
+        A "distância" entre a senha proposta e a senha verdadeira. Essa distância é medida letra por letra. Quanto mais distante uma letra for da que deveria ser, maior é essa distância.
+    '''
+    dif = 0
+
+    for letra_ind, letra_ver in zip(individuo, senha_verdadeira):
+        dif += abs(ord(letra_ind) - ord(letra_ver))
+    
+    diferenca_tamanho = abs(len(individuo) - len(senha_verdadeira))
+    dif += peso_da_penalidade * diferenca_tamanho
+
+    return dif
+
+
+def funcao_objetivo_senhavariavel(populacao, senha_verdadeira, penalidade):
+    '''Computa a funcao objetivo de uma populaçao no problema da senha.
+    Args:
+        populacao: lista com todos os individuos da população;
+        senha_verdadeira: 
+        penalidade: peso para a diferenca de tamanho entre o individuo e a senha real (punição).  
+    Return:
+      Lista contendo os valores da métrica de distância entre senhas.
+    '''
+    fitness = []
+
+    for individuo in populacao:
+        fitness.append(objetivo_senhavariavel(individuo, senha_verdadeira, penalidade))
+
+    return fitness
+
+
+def selecao_senhavariavel(populacao, fitness, tamanho_torneio):
+    '''Faz a seleção de uma população usando torneio.
+        Nota: da forma que está implementada, só funciona em problemas de minimização.
+    
+    Args:
+        populacao: lista com todos os individuos da população.
+        fitness: lista com os valores de fitness de cada individuo.
+        tamanho_torneio: quantidade de invidiuos que batalham entre si.
+    Return:
+        Individuos selecionados. Lista com os individuos selecionados com mesmo tamanho do argumento 'populacao'.
+    '''
+    selecionados = []
+
+    par_populacao_fitness = list(zip(populacao, fitness))
+
+    for _ in range(len(populacao)):
+        combatentes = random.sample(par_populacao_fitness, tamanho_torneio)
+
+        melhor_fit = float('inf')
+
+        for individuo, fit in combatentes:
+            if fit < melhor_fit:
+                selecionado = individuo
+                melhor_fit = fit
+        
+        selecionados.append(selecionado)
+    
+    return selecionados
+
+
+
+def cruzamento_simples_senhavariavel(pai, mae): 
+    '''Operador de cruzamento de ponto simples para o problema da senha variável.
+    Args:
+        pai: Uma lista representando um individuo.
+        mae: Uma lista representando um individuo.
+    Return:
+        Duas listas, sendo que cada uma representa um filho dos pais que foram os argumentos.
+    '''
+    if len(pai) < len(mae):
+        ponto_de_corte = random.randint(1, len(pai) - 1)
+    else:
+        ponto_de_corte = random.randint(1, len(mae) - 1)
+    
+    filho1 = pai[:ponto_de_corte] + mae[ponto_de_corte:]
+    filho2 = mae[:ponto_de_corte] + pai[ponto_de_corte:]
+    
+    return filho1, filho2
+
+
+
+def mutacao_senhavariavel(individuo, letras, tamanho_max):
+    '''Realiza a mutação de um gene no problema da senha variável.
+    Args:
+        individuo: uma lista representado um individuo no problema da senha.
+        letras: letras possíveis de serem sorteadas.
+        tamanho_max: tamanho máximo que a senha pode assumir.
+    Return:
+        Um individuo (senha variável) com um gene mutado.
+    '''
+    if random.random() < .5:
+        gene = random.randint(0, len(individuo) - 1)
+        individuo[gene] = gene_senhavariavel(letras)
+        return individuo
+    else:
+        novo_tamanho = random.randint(3, tamanho_max)
+        if novo_tamanho < len(individuo):
+            return individuo[:novo_tamanho]
+        else:
+            for _ in range(novo_tamanho - len(individuo)):
+                individuo.append(gene_senhavariavel(letras))
+            return individuo
 
 
