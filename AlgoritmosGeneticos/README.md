@@ -54,7 +54,10 @@ Você pode notar que as coisas seguem uma lógica, muito parecida com a natureza
 - experimento A.01 - busca aleatoria.ipynb: Experimento sobre Busca Aleatória ✔️;
 - experimento A.02 - busca em grade.ipynb: Experimento sobre Busca em Grade ✔️;
 - experimento A.03 - algoritmo genetico.ipynb: Primeiro modelo básico de um Algoritmo Genético ✔️;
-- experimento A.04 - algoritmo genetico.ipynb: Segundo modelo básico de um Algoritmo Genético com uma variedade maior de valores que os genes podem assumir ✔️;
+- experimento A.04 - caixas nao-binarias.ipynb: Segundo modelo básico de um Algoritmo Genético com uma variedade maior de valores que os genes podem assumir ✔️;
+- experimento A.05 - descobrindo a senha.ipynb: Experimento utilizando um Algoritmo Genético para descobrir uma senha específica ✔️;
+- experimento A.06 - o caixeiro viajante.ipynb: Problema do caixeiro viajante resolvido por busca através de um Algoritmo Genético e busca exaustiva ✔️;
+- experimento GA.01 - senha de tamanho variavel.ipynb: Experimento proposto para aplicação dos conceitos estudados para descorbrir uma senha de tamanho variável ✔️;
 - funcoes.py - Funções utilizadas nos experimentos ⌛.
 
 Legenda: <br>
