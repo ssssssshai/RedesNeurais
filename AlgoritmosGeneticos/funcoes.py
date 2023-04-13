@@ -198,7 +198,9 @@ def selecao_roleta_max(populacao, fitness):
     Return:
         População dos indivíduos selecionados.
     '''
-    populacao_selecionada = random.choices(populacao, weights=fitness, k=len(populacao))
+    populacao_selecionada = random.choices(
+        populacao, weights=fitness, k=len(populacao)
+    )
     return populacao_selecionada
 
 def selecao_torneio_min(populacao, fitness, tamanho_torneio=3):
@@ -453,12 +455,19 @@ def funcao_objetivo_mochila(individuo, objetos, limite, ordem_dos_nomes):
       quando o peso excede o limite.
     """
 
-    "vamos preencher aqui"
+    valor_mochila, peso_mochila = computa_mochila(individuo, objetos, ordem_dos_nomes)
+    
+    if peso_mochila > limite:
+        return 0.01
+    else:
+        return valor_mochila
+    
+    
 
-    pass
 
 
 
+    
 #Funções relacionadas ao objetivo da população:
 
 
@@ -613,9 +622,19 @@ def computa_mochila(individuo, objetos, ordem_dos_nomes):
       peso_total: peso total dos itens da mochila em unidades de massa.
     """
 
-    "vamos preencher aqui"
+    valor_total = 0
+    peso_total = 0
 
-    return valor_total, 
+    for pegou_ou_nao, nome_do_item in zip(individuo, ordem_dos_nomes):
+        if pegou_ou_nao == 1:
+            valor_do_item = objetos[nome_do_item]["valor"]
+            peso_do_item = objetos[nome_do_item]["peso"]
+
+            valor_total = valor_total + valor_do_item
+            peso_total = peso_total + peso_do_item
+
+
+    return valor_total, peso_total
 
 
 #FUNÇÕES DEDICADAS AOS EXERCÍCIOS
