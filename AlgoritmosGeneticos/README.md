@@ -58,6 +58,7 @@ Você pode notar que as coisas seguem uma lógica, muito parecida com a natureza
 - experimento A.05 - descobrindo a senha.ipynb: Experimento utilizando um Algoritmo Genético para descobrir uma senha específica ✔️;
 - experimento A.06 - o caixeiro viajante.ipynb: Problema do caixeiro viajante resolvido por busca através de um Algoritmo Genético e busca exaustiva ✔️;
 - experimento GA.01 - senha de tamanho variavel.ipynb: Experimento proposto para aplicação dos conceitos estudados para descorbrir uma senha de tamanho variável ✔️;
+- experimento A.07 - aplicando restricoes.ipynb: Experimento introduzindo o conceito de "restrição" num código de Algoritmos Genéticos através de um problema simples conhecido como "problema da mochila" ✔️;
 - funcoes.py - Funções utilizadas nos experimentos ⌛.
 
 Legenda: <br>
