@@ -47,24 +47,26 @@ Você pode notar que as coisas seguem uma lógica, muito parecida com a natureza
 </blockquote>
 
 <h2> O que tem nessa pasta? 💻 </h2>
-
-- Algumas coisas que valem a pena aprender ou relembrar.ipynb: Tal qual o título informa, contém algumas informações que podem ajudar no desenvolvimento dos experimentos ✔️;
-- README.md - É o arquivo que você está lendo agora ✔️;
-- classes.py - Contém algumas classes que serão utilizadas ✔️;
-- constantes.py - Contém algumas constantes que serão utilizadas ✔️;
-- experimento A.01 - busca aleatoria.ipynb: Experimento sobre Busca Aleatória ✔️;
-- experimento A.02 - busca em grade.ipynb: Experimento sobre Busca em Grade ✔️;
-- experimento A.03 - algoritmo genetico.ipynb: Primeiro modelo básico de um Algoritmo Genético ✔️;
-- experimento A.04 - caixas nao-binarias.ipynb: Segundo modelo básico de um Algoritmo Genético com uma variedade maior de valores que os genes podem assumir ✔️;
-- experimento A.05 - descobrindo a senha.ipynb: Experimento utilizando um Algoritmo Genético para descobrir uma senha específica ✔️;
-- experimento A.06 - o caixeiro viajante.ipynb: Problema do caixeiro viajante resolvido por busca através de um Algoritmo Genético e busca exaustiva ✔️;
-- experimento GA.01 - senha de tamanho variavel.ipynb: Experimento proposto para aplicação dos conceitos estudados para descorbrir uma senha de tamanho variável ✔️;
-- experimento A.07 - aplicando restricoes.ipynb: Experimento introduzindo o conceito de "restrição" num código de Algoritmos Genéticos através de um problema simples conhecido como "problema da mochila" ✔️;
+<blockquote>
+- Algumas coisas que valem a pena aprender ou relembrar.ipynb: Tal qual o título informa, contém algumas informações que podem ajudar no desenvolvimento dos experimentos ✔️;<br>
+- README.md - É o arquivo que você está lendo agora ✔️; <br>
+- classes.py - Contém algumas classes que serão utilizadas ✔️; <br>
+- constantes.py - Contém algumas constantes que serão utilizadas ✔️; <br>
+- experimento A.01 - busca aleatoria.ipynb: Experimento sobre Busca Aleatória ✔️; <br>
+- experimento A.02 - busca em grade.ipynb: Experimento sobre Busca em Grade ✔️; <br>
+- experimento A.03 - algoritmo genetico.ipynb: Primeiro modelo básico de um Algoritmo Genético ✔️; <br>
+- experimento A.04 - caixas nao-binarias.ipynb: Segundo modelo básico de um Algoritmo Genético com uma variedade maior de valores que os genes podem assumir ✔️; <br>
+- experimento A.05 - descobrindo a senha.ipynb: Experimento utilizando um Algoritmo Genético para descobrir uma senha específica ✔️; <br>
+- experimento A.06 - o caixeiro viajante.ipynb: Problema do caixeiro viajante resolvido por busca através de um Algoritmo Genético e busca exaustiva ✔️; <br>
+- experimento GA.01 - senha de tamanho variavel.ipynb: Experimento proposto para aplicação dos conceitos estudados para descorbrir uma senha de tamanho variável ✔️; <br>
+- experimento A.07 - aplicando restricoes.ipynb: Experimento introduzindo o conceito de "restrição" num código de Algoritmos Genéticos através de um problema simples conhecido como "problema da mochila" ✔️; <br>
 - funcoes.py - Funções utilizadas nos experimentos ✔️.
-
+<br>
+<br>
 Legenda: <br>
 ⌛ - O arquivo será atualizado. <br>
 ✔️ - O arquivo está finalizado.
+</blockquote>
   
 <h2> Considerações finais 😺 </h2>
   
