@@ -44,7 +44,7 @@ Logo, se juntarmos **Algoritmo + Genética** teremos os **Algoritmos Genéticos*
 - **Mutação:** A mutação pretende renovar periodicamente e aleatoriamente a população, inserir novos padrões nos cromossomos e incentivar a busca em áreas não exploradas do espaço de solução. A mutação é uma mudança aleatória em um gene que pode ocorrer durante o processo de reprodução. Ela é implementada como uma alteração aleatória em um ou mais valores do cromossomo. <br>
 
 Você pode notar que as coisas seguem uma lógica, muito parecida com a natureza através da seleção natural. Por processos de seleção dos melhores indivíduos (ou parâmetros, por exemplo) chegamos a uma geração de indivíduos evoluídos com as características necessárias para sobreviver onde estão (ou num resultado que foi o melhor para o problema que você propôs). Esses conceitos podem ser melhores esclarecidos, se achar necessário, através do livro <a href="https://www.amazon.com.br/Hands-Genetic-Algorithms-Python-intelligence-ebook/dp/B0842372RQ"> Hands-On Genetic Algorithms with Python</a> e, se facilitar, você pode buscar figuras que ilustram o funcionamento dos Algoritmos Genéticos, como <a href="https://bcc.ime.usp.br/tccs/2003/anselmo/node12.html"> essa</a> no fim do site. <br>
-</blackquote>
+</blockquote>
 
 <h2> O que tem nessa pasta? 💻 </h2>
 
