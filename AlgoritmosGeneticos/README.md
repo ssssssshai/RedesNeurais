@@ -48,9 +48,9 @@ Você pode notar que as coisas seguem uma lógica, muito parecida com a natureza
 <h2> O que tem nessa pasta? 💻 </h2>
 
 - Algumas coisas que valem a pena aprender ou relembrar.ipynb: Tal qual o título informa, contém algumas informações que podem ajudar no desenvolvimento dos experimentos ✔️;
-- README.md - É o arquivo que você está lendo agora ⌛;
-- classes.py - Contém algumas classes que serão utilizadas ⌛;
-- constantes.py - Contém algumas constantes que serão utilizadas ⌛;
+- README.md - É o arquivo que você está lendo agora ✔️;
+- classes.py - Contém algumas classes que serão utilizadas ✔️;
+- constantes.py - Contém algumas constantes que serão utilizadas ✔️;
 - experimento A.01 - busca aleatoria.ipynb: Experimento sobre Busca Aleatória ✔️;
 - experimento A.02 - busca em grade.ipynb: Experimento sobre Busca em Grade ✔️;
 - experimento A.03 - algoritmo genetico.ipynb: Primeiro modelo básico de um Algoritmo Genético ✔️;
@@ -59,8 +59,12 @@ Você pode notar que as coisas seguem uma lógica, muito parecida com a natureza
 - experimento A.06 - o caixeiro viajante.ipynb: Problema do caixeiro viajante resolvido por busca através de um Algoritmo Genético e busca exaustiva ✔️;
 - experimento GA.01 - senha de tamanho variavel.ipynb: Experimento proposto para aplicação dos conceitos estudados para descorbrir uma senha de tamanho variável ✔️;
 - experimento A.07 - aplicando restricoes.ipynb: Experimento introduzindo o conceito de "restrição" num código de Algoritmos Genéticos através de um problema simples conhecido como "problema da mochila" ✔️;
-- funcoes.py - Funções utilizadas nos experimentos ⌛.
+- funcoes.py - Funções utilizadas nos experimentos ✔️.
 
 Legenda: <br>
 ⌛ - O arquivo será atualizado. <br>
 ✔️ - O arquivo está finalizado.
+  
+<h2> Considerações finais 😺 </h2>
+  
+<blockquote> Os experimentos de Algoritmos Genéticos chegeram ao fim! Ao final, aprendemos como criar um Algoritmo Genético básico, entendemos diferenças entre buscas aleatórias e em grade, bem como funciona e como se arquiteta um desses Algoritmos. A maior parte da "base" está nesse repositório, ou seja, essas funções e projetos podem ser usados e adaptados para outros problemas, quem sabe, até mais complexos. Vimos que os Algoritmos Genéticos são muito importantes para otimização, e, também, que podem gerar mutações, que trazem maior heterogeneidade para suas soluções, por isso descobrimos várias senhas nessa jornada! <br> 
