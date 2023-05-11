@@ -790,3 +790,21 @@ def mutacao_senhavariavel(individuo, letras, tamanho_max):
             for _ in range(novo_tamanho - len(individuo)):
                 individuo.append(gene_senhavariavel(letras))
             return individuo
+        
+
+def cria_cidades_astronaurta(n):
+    """Cria um dicionário aleatório de cidades com suas posições (x, y, z).
+    Args:
+      n: inteiro positivo
+        Número de cidades que serão visitadas pelo caixeiro.
+    Returns:
+      Dicionário contendo o nome das cidades como chaves e a coordenada no plano
+      cartesiano das cidades como valores.
+    """
+
+    cidades = {}
+
+    for i in range(n):
+        cidades[f"Cidade {i}"] = (random.random(), random.random(), random.random())
+    return cidades
+
